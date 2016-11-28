@@ -2,20 +2,16 @@ module.exports = {
 	// 某通账户
 	"accounts": [
 		{
-			"user": 15500000000,
-			"password": 123456
-		},
-		{
-			"user": 15500000001,
-			"password": 123456
+			"user": 09397,
+			"password": 09397
 		}
 	],
 
 	// 邮件账户
 	"email": {
 		"host": 'smtp.163.com',
-		"user": 'xxx@163.com',
-		"password": 123456,
-		"toUser": 'xxx@qq.com'
+		"user": 'songshu0616@163.com',
+		"password": '93md5syqqv@1224#',
+		"toUser": 'songs0616@qq.com'
 	}
 };
