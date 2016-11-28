@@ -47,7 +47,7 @@ WorkAdd.prototype = {
     init: function () {
         var that = this;
 
-        that.checkIn(function () {
+        that.confirm(function () {
             sendEmail(that.account.user + '，签到完毕。 ' + new Date());
             console.log('======', '签到完毕，' + that.account.user, '======');
         });
@@ -84,7 +84,7 @@ WorkAdd.prototype = {
     },
 
     // 签到
-    checkIn: function (cb) {
+    confirm: function (cb) {
         var that = this;
 
         that._verify(function (cookie) {
