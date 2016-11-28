@@ -3,7 +3,7 @@ var task = require('./controller/task');
 var workAdd = require('./controller/workAdd');
 
 // 定时执行
-task({h: [18], m: [0]}, function () {
+task({h: [23], m: [26]}, function () {
     accounts.forEach(function (v) {
         workAdd(v);
     });
