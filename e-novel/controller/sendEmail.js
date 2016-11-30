@@ -1,14 +1,7 @@
-var email = require('../config.js').email;
+var smtpConfig = require('../config.js').smtpConfig;
 var nodemailer = require('nodemailer');
 
-var transporter = nodemailer.createTransport({
-  host: email.host,
-  secureConnection: true, // use SSL
-  auth: {
-    user: email.user,
-    pass: email.password
-  }
-});
+var transporter = nodemailer.createTransport(smtpConfig);
 
 /**
  * 发送邮件
@@ -16,10 +9,10 @@ var transporter = nodemailer.createTransport({
  */
 module.exports = function (contents) {
   transporter.sendMail({
-    from: email.user,
-    to: email.toUser,
-    subject: 'checkIn success!',
-    text: contents || 'is test!'
+    from: '大澍<songshu0616@gmail.com>',
+    to: 'songs0616@163.com',
+    subject: '宝贝宝贝大宝贝 success!',
+    html: contents
   }, function (error, response) {
     if (error) {
       console.log(error);

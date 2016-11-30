@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+        Actview: ログイン </title>
+    <link href="/eik/favicon.ico" type="image/x-icon" rel="icon" />
+    <link href="/eik/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    <link rel="stylesheet" type="text/css" href="/eik/css/cake.generic.css" />
+    <link rel="stylesheet" type="text/css" href="/eik/css/protocalendar-js-1.1.8.2/stylesheets/ext-simple.css" /> 
+    <script type="text/javascript" src="/eik/js/protocalendar-js-1.1.8.2/lib/prototype.js"></script> 
+    <script type="text/javascript" src="/eik/js/protocalendar-js-1.1.8.2/javascripts/protocalendar.js"></script> 
+        <script type="text/javascript" src="/eik/js/protocalendar-js-1.1.8.2/javascripts/lang_ja.js"></script></head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <div align="right">
+                <font size='1'>Ver 1.1.207</font>
+            </div>
+            <div align="right">
+                <font size='1'>login: </font>
+            </div>
+            <img src="/eik/img/actview-logo200.gif" alt="" /> </div>
+        <div id="content">
+
+
+            <div class="users form">
+                <form id="UserLogin?guid=ONForm" method="post" action="/eik/users/login?guid=ON">
+                    <fieldset style="display:none;"><input type="hidden" name="_method" value="POST" /></fieldset>
+                    <div class="input text"><label for="UserLoginID">ログインID</label><input name="data[User][loginID]" type="text" maxlength="20" value=""
+                            id="UserLoginID" /></div>
+                    <div class="input password"><label for="UserLoginPW">パスワード</label><input type="password" name="data[User][loginPW]" value="" id="UserLoginPW"
+                        /></div> <input type="submit" value="ログイン" />
+                </form>
+            </div>
+
+        </div>
+        <div id="footer">
+            Powered by Japan Novel </div>
+    </div>
+</body>
+
+</html>

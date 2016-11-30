@@ -8,7 +8,10 @@
             "type": "node",
             "request": "launch",
             "name": "启动程序",
+            // "program": "${workspaceRoot}/e-novel/controller/request.js",
             "program": "${workspaceRoot}/e-novel/app.js",
+            // "program": "${workspaceRoot}/test/test.js",
+            // "program": "${workspaceRoot}/e-novel/mailTest.js",
             "cwd": "${workspaceRoot}"
         },
         {

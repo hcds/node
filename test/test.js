@@ -1,0 +1,1 @@
+console.log("\n\t\t\t長谷川　雄紀\t\t".replace(/\n|\t/g, ''));

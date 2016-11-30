@@ -1,0 +1,106 @@
+ text: '
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n
+<html xmlns="http://www.w3.org/1999/xhtml">\n
+
+<head>\n\t
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />\t
+    <title>\n\t\tActview:\t\t入場記録\t</title>\n\t
+    <link href="/eik/favicon.ico" type="image/x-icon" rel="icon" />
+    <link href="/eik/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    <link rel="stylesheet" type="text/css" href="/eik/css/cake.generic.css" />
+    <link rel="stylesheet" type="text/css" href="/eik/css/protocalendar-js-1.1.8.2/stylesheets/ext-simple.css" />\t<script type="text/javascript" src="/eik/js/protocalendar-js-1.1.8.2/lib/prototype.js"></script>\t<script type="text/javascript"
+        src="/eik/js/protocalendar-js-1.1.8.2/javascripts/protocalendar.js"></script>\t<script type="text/javascript" src="/eik/js/protocalendar-js-1.1.8.2/javascripts/lang_ja.js"></script></head>\n
+
+<body>\n\t
+    <div id="container">\n\t\t
+        <div id="header">\n\t\t\t
+            <div align="right">
+                <font size=\ '1\'>Ver 1.1.207</font>
+            </div>\n\t\t\t\t\t\t
+            <div align="right">
+                <font size=\ '1\'>login: 楊　師師</font>
+            </div>\n\t\t\t<img src="/eik/img/actview-logo200.gif" alt="" />\t\t</div>\n\t\t
+        <div id="content">\n\t\t\t\t\t\t\n\t\t\t
+            <div class="workLogs index">\n
+                <h2>タイムレコーダー</h2>\n
+                <h3>検索</h3>\n検索条件を入力し、検索ボタンを押してください
+                <form id="work_logsIndexAllForm" method="post" action="/eik/work_logs/index_all">
+                    <fieldset style="display:none;"><input type="hidden" name="_method" value="POST" /></fieldset>
+                    <table cellpadding="0" cellspacing="0">\n
+                        <tr>\n
+                            <th>登録日</th>\n
+                            <td>\n\t<input name="data[search][start]" type="text" style="width:10em;" value="2016-11-28" id="searchStart"
+                                />～\n\t<input name="data[search][end]" type="text" style="width:10em;" value="2016-11-28"
+                                    id="searchEnd" />\t<script type="text/javascript">\n\t\tInputCalendar.createOnLoaded(\'searchStart\',{format: \'yyyy-mm-dd\',lang:\'ja\'});\n\t</script>\n\t
+                                <script
+                                    type="text/javascript">\n\t\tInputCalendar.createOnLoaded(\'searchEnd\',{format: \'yyyy-mm-dd\',lang:\'ja\'});\n\t</script>\n</td>\n</tr>\n
+                        <tr>\n
+                            <th>グループ</th>\n
+                            <td><select name="data[search][group_id]" id="searchGroupId">\n<option value="">---</option>\n<option value="1">HUBアルバイト</option>\n</select></td>\n</tr>\n
+                        <tr>\n
+                            <th>ユーザー</th>\n
+                            <td><select name="data[search][user_id]" id="searchUserId">\n<option value="">---</option>\n<option value="38">長谷川　雄紀</option>\n<option value="37">芝田　和宏</option>\n<option value="2">ハリ　サラナ　カデル</option>\n<option value="3">タパ　マガル　ビムセン</option>\n<option value="4" selected="selected">趙  亮亮</option>\n<option value="5">楊　師師</option>\n<option value="6">林  煜</option>\n<option value="7">袁澤秋</option>\n<option value="8">孟　霊雲</option>\n<option value="9">ゴ　トアン　ダット</option>\n<option value="10">グエン　ドック　ワン</option>\n<option value="11">ファン　ヴァン　トゥアン</option>\n<option value="12">黄　麗霞</option>\n<option value="13">孫　志強</option>\n<option value="14">李　嘉欣</option>\n<option value="15">卜　令芹</option>\n<option value="16">シーケ　ラム</option>\n<option value="17">孔　天宇</option>\n<option value="18">林　恭良</option>\n<option value="19">趙　芙莉</option>\n<option value="20">林　家家</option>\n<option value="21">孫　善芝</option>\n<option value="22">王　遠傑</option>\n<option value="23">黄　雲楠</option>\n<option value="25">範　牧聡</option>\n<option value="26">馮　志全</option>\n<option value="27">黄　貴福</option>\n<option value="28">孔　祥宇</option>\n<option value="29">タパ　マガル　サラン</option>\n<option value="30">シュレスタ　ガウラヴ</option>\n<option value="31">祝 賀</option>\n<option value="32">劉　洋</option>\n<option value="36">鍾 禎木</option>\n<option value="33">チャン　チョン　バウ</option>\n<option value="34">チャン　バン　クエット</option>\n<option value="35">夏 菁</option>\n<option value="39">呼　琴図</option>\n<option value="40">陳　偉</option>\n<option value="41">劉　偉達</option>\n<option value="42">黄　圓</option>\n<option value="43">李　前達木尼</option>\n<option value="24">薛   進財</option>\n<option value="44">user44</option>\n<option value="45">user45</option>\n<option value="46">user46</option>\n<option value="47">user47</option>\n<option value="48">user48</option>\n<option value="49">user49</option>\n<option value="50">user50</option>\n</select></td>\n</tr>\n</table>\n
+                    <div
+                        class="submit"><input type="submit" value="検索" /></div>
+            </form>\n\n\n
+            <h3>入退場記録一覧</h3>\n
+            <p>\n検索結果：3 レコード</p>\n\n
+            <table cellpadding="0" cellspacing="0">\n
+                <tr>\n\t\t
+                    <th width="120"><a href="/eik/work_logs/index_all/page:1/start:2016-11-28/end:2016-11-28/user_id:4/sort:user_id/direction:asc">ユーザー</a></th>\n\t
+                    <th
+                        width="120"><a href="/eik/work_logs/index_all/page:1/start:2016-11-28/end:2016-11-28/user_id:4/sort:stamptime/direction:asc">登録時刻</a></th>\n\t
+                        <th
+                            width="85"><a href="/eik/work_logs/index_all/page:1/start:2016-11-28/end:2016-11-28/user_id:4/sort:stamp_type_id/direction:asc">登録種別</a></th>\n\t
+                            <th
+                                width="85"><a href="/eik/work_logs/index_all/page:1/start:2016-11-28/end:2016-11-28/user_id:4/sort:work_place_id/direction:asc">作業場所</a></th>\n\t
+                                <th
+                                    width="60"><a href="/eik/work_logs/index_all/page:1/start:2016-11-28/end:2016-11-28/user_id:4/sort:latitude/direction:asc">緯度:</a></th>\n\t
+                                    <th
+                                        width="60"><a href="/eik/work_logs/index_all/page:1/start:2016-11-28/end:2016-11-28/user_id:4/sort:longitude/direction:asc">経度:</a></th>\n
+                                        <th width="60" class="actions">操作</th>\n\t
+                                        <th><a href="/eik/work_logs/index_all/page:1/start:2016-11-28/end:2016-11-28/user_id:4/sort:comment/direction:asc">コメント</a></th>\n</tr>\n\t
+                <tr
+                    class="altrow">\n\t\t\t\t
+                    <td width="120">\n\t\t\t趙 亮亮\t\t</td>\n\t\t
+                    <td width="120">\n\t\t\t2016-11-28 11:28:21\t\t</td>\n\t\t
+                    <td width="80">\n\t\t\t退出・OUT\t\t</td>\n\t\t
+                    <td width="80">\n\t\t\t\t\t</td>\n\t\t
+                    <td width="60">\n\t\t\t35.66\t\t</td>\n\t\t
+                    <td width="60">\n\t\t\t139.74\t\t</td>\n
+                    <td width="60" class="actions">\n <a href="http://maps.google.co.jp/maps?hl=ja&amp;ie=UTF8&amp;q=35.662894,139.737531">Map</a> </td>\n\t\t
+                    <td>\n </td>\n\t</tr>\n\t
+                    <tr>\n\t\t\t\t
+                        <td width="120">\n\t\t\t趙 亮亮\t\t</td>\n\t\t
+                        <td width="120">\n\t\t\t2016-11-28 09:30:58\t\t</td>\n\t\t
+                        <td width="80">\n\t\t\t出勤・IN\t\t</td>\n\t\t
+                        <td width="80">\n\t\t\t\t\t</td>\n\t\t
+                        <td width="60">\n\t\t\t35.66\t\t</td>\n\t\t
+                        <td width="60">\n\t\t\t139.73\t\t</td>\n
+                        <td width="60" class="actions">\n <a href="http://maps.google.co.jp/maps?hl=ja&amp;ie=UTF8&amp;q=35.662003,139.732986">Map</a> </td>\n\t\t
+                        <td>\n </td>\n\t</tr>\n\t
+                    <tr class="altrow">\n\t\t\t\t
+                        <td width="120">\n\t\t\t趙 亮亮\t\t</td>\n\t\t
+                        <td width="120">\n\t\t\t2016-11-28 07:06:49\t\t</td>\n\t\t
+                        <td width="80">\n\t\t\t出勤・IN\t\t</td>\n\t\t
+                        <td width="80">\n\t\t\t\t\t</td>\n\t\t
+                        <td width="60">\n\t\t\t35.66\t\t</td>\n\t\t
+                        <td width="60">\n\t\t\t139.74\t\t</td>\n
+                        <td width="60" class="actions">\n <a href="http://maps.google.co.jp/maps?hl=ja&amp;ie=UTF8&amp;q=35.662876,139.744791">Map</a> </td>\n\t\t
+                        <td>\n </td>\n\t</tr>\n</table>\n</div>\n
+        <div class="paging">\n\t
+            <div class="disabled">&lt;&lt; 前へ</div> | \t\t
+            <div class="disabled">次へ &gt;&gt;</div>
+        </div>\n\n\t\t\t\t\t\t
+        <hr>\n\t\t\t
+        <ul>\n\t\t\t\t\t\t\t\t\t
+            <li><a href="/eik/users/menu">メニュー</a></li>\n\t\t\t\t\t
+            <li><a href="/eik/informationData/index">お知らせ一覧</a></li>\n\t\t\t\t\t
+            <li><a href="/eik/workLogs/add">入場記録追加</a></li>\n
+            <li><a href="/eik/workLogs/index_all">入場記録一覧</a></li>\n\t\t\t\t\t
+            <li><a href="/eik/workLogs/index">登録履歴一覧</a></li>\n\t\t\t\t\t
+            <li><a href="/eik/applications/index">ワークフロー</a></li>\n\t\t\t\t\t\t\t\t
+            <li><a href="/eik/users/logout">ログアウト</a></li>\n\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t
+    <div id="footer">\n\t\t\tPowered by Japan Novel\t\t</div>\n\t</div>\n\t</body>\n
+
+</html>
