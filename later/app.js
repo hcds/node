@@ -1,6 +1,5 @@
 var config = require('./config');
 var task = require('./controller/task');
-var workAdd = require('./controller/workAdd');
 var moment = require("moment");
 
 
@@ -15,4 +14,4 @@ tasks.forEach(function(t) {
     })
 });
 
-console.log('======', '自动登录服务运行中..', '======');
+console.log('======', '自动登录服务运行中..', '======');cd
