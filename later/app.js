@@ -1,4 +1,4 @@
-var config = require('./config.1');
+var config = require('./config');
 var task = require('./controller/task');
 var workAdd = require('./controller/workAdd');
 var moment = require("moment");
