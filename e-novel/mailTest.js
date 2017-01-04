@@ -35,7 +35,7 @@ var smtpConfig = {
 //メールの内容
 var mailOptions = {
     from: '大澍<songshu0616@gmail.com>',
-    to: 'songs0616@163.com',
+    to: 'songs0616@163.com, yangshuai0206@163.com',
     subject: '宝贝宝贝大宝贝 success!',
     text:'来吧!!!!',
     html: '<html><header></header><body><p>来吧来吧来吧来吧来吧</p></body></html>' //HTMLタグが使えます

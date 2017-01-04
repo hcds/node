@@ -1,24 +1,17 @@
 var config = require('./config');
 var task = require('./controller/task');
 var workAdd = require('./controller/workAdd');
+var moment = require("moment");
 
 
-var accounts = config.accounts;
-var task_time = config.task_time;
-// 定时执行
-task(task_time[0], function () {
-    accounts.forEach(function (v) {
-        workAdd(v);
-    });
-});
+var account = config.account;
+var tasks = config.tasks;
 
 // 定时执行
-task(task_time[0], function () {
-    accounts.forEach(function (v) {
-        workAdd(v);
-    });
+tasks.forEach(function(t) {
+    task(t.time, function () {
+        workAdd(account, t.address, t.inOut);
+    })
 });
 
-workAdd(accounts[0]);
-
-console.log('======', '自动签到服务运行中..', '======');
+console.log('======', '自动登录服务运行中..', '======');

@@ -1,4 +1,5 @@
 var smtpConfig = require('../config.js').smtpConfig;
+var mailOptions = require('../config.js').mailOptions;
 var nodemailer = require('nodemailer');
 
 var transporter = nodemailer.createTransport(smtpConfig);
@@ -7,17 +8,17 @@ var transporter = nodemailer.createTransport(smtpConfig);
  * 发送邮件
  * @param contents
  */
-module.exports = function (contents) {
+module.exports = function (title, contents) {
   transporter.sendMail({
-    from: '大澍<songshu0616@gmail.com>',
-    to: 'songs0616@163.com',
-    subject: '宝贝宝贝大宝贝 success!',
+    from: mailOptions.from,
+    to: mailOptions.to,
+    subject: mailOptions.subject + title,
     html: contents
-  }, function (error, response) {
-    if (error) {
-      console.log(error);
+  }, function (err, response) {
+    if (err) {
+      console.log(err);
     } else {
-      console.log("Message sent: " + response.response);
+      console.log("发送邮件成功Message : " + response.response);
     }
 
     transporter.close(); // 如果没用，关闭连接池

@@ -1,6 +1,7 @@
 var request = require('superagent');
 var sendEmail = require('./sendEmail');
 var cheerio = require("cheerio");
+var moment = require("moment");
 
 var headers = {
     Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -26,12 +27,14 @@ var origin = 'https://www.e-novel.ne.jp/eik',
 
 
 /**
- * 自动签到
+ * 自动
  * @param account {object}
  * @constructor
  */
-function WorkAdd(account) {
+function WorkAdd(account, address, inOut) {
     this.account = account;
+    this.address = address;
+    this.inOut = inOut;
 
     this.cookie = {
         value: null,
@@ -47,14 +50,14 @@ WorkAdd.prototype = {
     init: function () {
         var that = this;
 
-        that._login(function (text) {
-            sendEmail(text);
+        that._login(function (title, contents) {
+            sendEmail(title, contents);
         });
     },
 
     // 登录
     _login: function (fc) {
-
+        console.log('=========== 登录 Start :' + new Date().toLocaleString() + ' ==========');
         var that = this;
         headers.Referer = 'https://www.e-novel.ne.jp/eik/users/login';
         request
@@ -63,14 +66,14 @@ WorkAdd.prototype = {
             .type('form')
             .send({
                 '_method': 'POST',
-                'data[User][loginID]': '09397',
-                'data[User][loginPW]': '09397'
+                'data[User][loginID]': that.account.user,
+                'data[User][loginPW]': that.account.password
             })
             .redirects(0)
             .end(function (err, result) {
 
                 that.cookie.value = result.headers['set-cookie'].join(',').match(/(PHPSESSID=.+?);/)[1]
-                if (!that.cookie.value) {
+                if (that.cookie.value) {
                     console.log('=========== 登录成功 :' + new Date().toLocaleString() + ' ==========');
                 }
                 that.add(fc);
@@ -80,7 +83,7 @@ WorkAdd.prototype = {
     // 确认
     add: function (cb) {
         var that = this;
-
+        console.log('=========== 地址添加 Start :' + new Date().toLocaleString() + ' ==========');
         headers.Referer = 'https://www.e-novel.ne.jp/eik/workLogs/add';
         request
             .post(urls.add)
@@ -89,44 +92,36 @@ WorkAdd.prototype = {
             .type('form')
             .send({
                 '_method':'POST',
-                'data[WorkLog][stamp_type_id]':"1",
+                'data[WorkLog][stamp_type_id]':that.inOut,
                 'data[WorkLog][comment]':"",
-                'data[WorkLog][geo_lat]':'35.658268',
-                'data[WorkLog][geo_lon]':"139.336230"
+                'data[WorkLog][geo_lat]':that.address.geo_lat,
+                'data[WorkLog][geo_lon]':that.address.geo_lon
             })
             .end(function (err, result) {
-                // $ = cheerio.load(result.text);
-                // $('p + table').each(function () {
-                //     var text = '';
-                //     $(this).find('td').each(function () {
-                //         if (!text) {
-                //             text = $(this).text().replace(/\n|\t|\s/g, '');
-                //         } else {
-                //             text = text + ',' + $(this).text().replace(/\n|\t|\s/g, '');
-                //         }
-                //     });
-                //     console.log(text.replace(/Map,,/g, "Map\n"));
-                // });
-                that.confirm(fc);
+                if (result.text.indexOf("データを保存しました。") > -1) {
+                    console.log('=========== 地址添加成功 :' + that.address.name + ' ==========');
+                }
+                that.confirm(cb);
             });
-    }
+    },
 
     // 确认
     confirm: function (cb) {
         var that = this;
 
+        var date = moment().format("YYYY-MM-DD");
         headers.Referer = 'https://www.e-novel.ne.jp/eik/work_logs/index_all';
         request
             .post(urls.confirm)
             .set(headers)
             .set('Cookie', that.cookie.value)
-            .type('form')
+            .type("form")
             .send({
-                '_method': 'POST',
-                'data[search][start]': '2016-11-29',
-                'data[search][end]': '2016-11-29',
-                'data[search][group_id]': '',
-                'data[search][user_id]': '38'
+                '_method': "POST",
+                'data[search][start]': date,
+                'data[search][end]': date,
+                'data[search][group_id]': "",
+                'data[search][user_id]': "5"
             })
             .end(function (err, result) {
                 // $ = cheerio.load(result.text);
@@ -141,12 +136,12 @@ WorkAdd.prototype = {
                 //     });
                 //     console.log(text.replace(/Map,,/g, "Map\n"));
                 // });
-                cb(result.text);
+                cb(that.address.name, result.text);
             });
     }
 };
 
 
-module.exports = function (account) {
-    return new WorkAdd(account);
+module.exports = function (account, address, inOut) {
+    return new WorkAdd(account, address, inOut);
 };
