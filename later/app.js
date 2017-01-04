@@ -1,7 +1,18 @@
-var later = require('later');
-var sched = later.parse.text('every 5 mins'),
-    occurrences = later.schedule(sched).next(10);
+var config = require('./config.1');
+var task = require('./controller/task');
+var workAdd = require('./controller/workAdd');
+var moment = require("moment");
 
-for(var i=0;i<10;i++){
-    console.log(occurrences[i]);
-}
+
+var account = config.account;
+var tasks = config.tasks;
+
+// 定时执行
+tasks.forEach(function(t) {
+    task(t.time, function () {
+        //workAdd(account, t.address, t.inOut);
+        console.log("address : " + t.address.name);
+    })
+});
+
+console.log('======', '自动登录服务运行中..', '======');
